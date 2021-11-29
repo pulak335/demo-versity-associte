@@ -1,30 +1,39 @@
-import React,{useEffect,useState} from 'react';
-import { useParams } from 'react-router';
-import {Link} from 'react-router-dom'
+import React,{useState} from 'react';
+import StudentInfo from './StudentInfo';
 
 const StudentVerify = () => {
-    const { uniqeId } = useParams();
     const [studentData, setStudentData] = useState([]);
     const [studentId, setStudentId] = useState('');
-    useEffect(() => {
-        const uri=`http//localhost:5000/${studentId}`
+
+
+    const handleInput = (e) => {
+        e.preventDefault();
+        const id = e.target.value;
+        setStudentId(id)
+    }
+    
+    const callStudentData = (id) => {
+
+        const uri = `http://localhost:5000/students/${id}`
         fetch(uri)
             .then(res => res.json())
             .then(data => console.log(data))
-        
-    }, [studentId])
+    }
+    
+
     return (
         <div className="container">
-            <div class="input-group my-3">
-                <input type="text" class="form-control" placeholder="Enter Your ID" aria-describedby="button-addon2" onBlur={(e) => {
-                    setStudentId(e.target.value)
-                }}/>
-                <Link to={`/studentverify/${studentId}`}>
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Verify</button>
-                </Link>
+            <div className="input-group my-3">
+
+                <input type="text" className="form-control" placeholder="Enter Your ID" aria-describedby="button-addon2" onBlur={handleInput} />
+                
+                <button className="btn btn-outline-secondary" type="button" onClick={()=>callStudentData(studentId)}>Verify</button>
+                
             </div>
             <div>
-                <h1>{studentId}</h1>
+                
+                <StudentInfo></StudentInfo>
+             
             </div>
         </div>
     );

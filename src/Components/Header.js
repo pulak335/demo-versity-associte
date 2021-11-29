@@ -12,9 +12,9 @@ function Header() {
                     <a className="navbar-brand text-white">University Logo</a>
                     <div className="d-flex nav-item">
                             <a href="#" className="nav-link">English</a>
-                            <span class="border border-end text-white"></span>
+                            <span className="border border-end text-white"></span>
                             <a href="#" className="nav-link">Help</a>
-                            <span class="border border-end text-white"></span>
+                            <span className="border border-end text-white"></span>
                             <a href="#" className="nav-link">Explore the University wales</a>
                             
                     </div>

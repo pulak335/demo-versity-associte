@@ -1,7 +1,7 @@
 import './App.css';
 import Details from './Components/Details';
 import Header from './Components/Header';
-import StudentInfo from './Pages/StudentVerify'
+import StudentInfo from './Pages/StudentInfo'
 import {
   BrowserRouter,
   Routes,
@@ -17,7 +17,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Details/>} />
         <Route path="/studentverify" element={<StudentVerify />}></Route>
-        <Route path="/studentverify/:uniqeId" element={<StudentInfo />}></Route>
       </Routes>
     </BrowserRouter>
   );
